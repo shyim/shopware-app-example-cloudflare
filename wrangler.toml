@@ -1,0 +1,13 @@
+name = "shopware-app"
+main = "src/index.ts"
+compatibility_date = "2022-11-11"
+send_metrics = false
+
+[vars]
+APP_URL="https://shopware-app.shyim.workers.dev"
+APP_NAME="MyApp"
+APP_SECRET="Foo"
+
+[[kv_namespaces]]
+  binding = "appRegistrationNamespace"
+  id = "aaf0b899682f496cae5a84656a8f39b4"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>MyApp</name>
+        <label>My Cloudflare Test App</label>
+        <label lang="de-DE">My Cloudflare Test App</label>
+        <description>A simple app with Cloudflare backend</description>
+        <description lang="de-DE">A simple app with Cloudflare backend</description>
+        <author>You</author>
+        <copyright>You</copyright>
+        <version>0.0.15</version>
+        <license>MIT</license>
+    </meta>
+    <setup>
+        <registrationUrl>https://shopware-app.shyim.workers.dev/authorize</registrationUrl>
+        <secret>Foo</secret>
+    </setup>
+    <permissions>
+        <read>product</read>
+        <update>product</update>
+    </permissions>
+
+    <admin>
+        <module name="moduleInfo"
+                source="https://shopware-app.shyim.workers.dev/module/info"
+                parent="sw-extension"
+                position="50"
+        >
+            <label>Info</label>
+            <label lang="de-DE">Info</label>
+        </module>
+    </admin>
+
+    <webhooks>
+        <webhook name="appLifecycleDeleted" url="https://shopware-app.shyim.workers.dev/authorize/delete" event="app.deleted"/>
+        <webhook name="productWritten" url="https://shopware-app.shyim.workers.dev/webhook/product.written" event="product.written"/>
+    </webhooks>
+</manifest>
